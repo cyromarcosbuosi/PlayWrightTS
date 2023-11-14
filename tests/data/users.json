@@ -10,5 +10,8 @@
     "password": {
         "rightPassword": "secret_sauce",
         "wrongPassword": "wrong_sauce"
-    }
+    },
+    "firstName":"John",
+    "lastName": "Doe",
+    "postalCode": "123123123"
 }
