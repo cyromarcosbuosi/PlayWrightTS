@@ -21,17 +21,17 @@ test.describe('Saucelabs testing', () => {
     })
 
     test.only('Log in with valid user', async ({ }) => {
-        await login.inputSignCredentials(user.usernames['standard_user'], user.password['rightPassword']);
+        await login.inputSignCredentials(user.usernames.standard_user, user.password.rightPassword);
         await expect(ecom.cartBtn).toBeVisible();
     })
 
     test('Log in with wrong password', async ({ }) => {
-        await login.inputSignCredentials(user.usernames['standard_user'], user.password['wrongPassword']);
+        await login.inputSignCredentials(user.usernames.standard_user, user.password.wrongPassword);
         await expect(login.signInErrorMsg).toBeVisible();
     })
 
     test('Try to log in with locked out', async ({ }) => {
-        await login.inputSignCredentials(user.usernames['locked_out_user'], user.password['rightPassword']);
+        await login.inputSignCredentials(user.usernames.standard_user, user.password.rightPassword);
         await expect(login.signInErrorMsg).toContainText('Epic sadface: Sorry, this user has been locked out.')
     })
 

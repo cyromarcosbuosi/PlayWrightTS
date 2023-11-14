@@ -15,7 +15,6 @@ export class LoginPage {
         this.password = page.locator('[data-test="password"]');
         this.submitBtn = page.locator('[data-test="login-button"]');
         this.signInErrorMsg = page.locator('[data-test="error"]')
-        
     }
 
     async inputSignCredentials(user, password){
