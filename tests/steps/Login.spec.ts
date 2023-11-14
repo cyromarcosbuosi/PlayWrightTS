@@ -19,6 +19,7 @@ test.describe('Saucelabs testing', () => {
 
     test.only('Log in with valid user', async ({ page }) => {
         await login.loginValidUser(user.usernames['standard_user'], user.password['rightPassword']);
+        await expect(login.cartBtn).toBeVisible();
     })
 
 
