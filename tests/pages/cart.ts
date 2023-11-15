@@ -7,7 +7,7 @@ export class Cart {
 
     constructor(page){
         this.page = page;
-        this.checkoutBtn = page.locator('[data-test="checkout"]').click();
+        this.checkoutBtn = page.locator('[data-test="checkout"]');
         this.baskteItem = page.getByRole('link', { name: 'Sauce Labs Backpack' });
     }
 }
