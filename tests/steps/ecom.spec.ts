@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test"
+import exp from "constants";
 import { beforeEach, describe } from "node:test";
 import { Utils } from "../../utils/main";
 import { Cart } from "../pages/cart";
@@ -35,6 +36,9 @@ describe('ecommerce E2E test cases', () => {
         await ecom.cartBtn.click();
         await cart.checkoutBtn.click();
         await checkout.fillCheckoutFields(user.firstName, user.lastName, user.postalCode);
+        await checkout.continueBtn.click();
+        await checkout.finishCheckoutBtn.click();
+        await expect(checkout.checkoutCompleteImg).toBeVisible();
     })
 
 }) 
