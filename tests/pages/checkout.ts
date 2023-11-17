@@ -8,6 +8,8 @@ export class Checkout {
     readonly continueBtn: Locator;
     readonly finishCheckoutBtn: Locator;
     readonly checkoutCompleteImg: Locator;
+    readonly removeBackPackBtn: Locator;
+    readonly removedCartItem: Locator;
 
     constructor(page) {
         this.page = page;
@@ -16,7 +18,10 @@ export class Checkout {
         this.postalCodeField = page.locator('[data-test="postalCode"]');
         this.continueBtn = page.locator('[data-test="continue"]');
         this.finishCheckoutBtn = page.locator('[data-test="finish"]');
-        this.checkoutCompleteImg = page.getByRole('img', { name: 'Pony Express' })
+        this.checkoutCompleteImg = page.getByRole('img', { name: 'Pony Express' });
+        this.removeBackPackBtn = page.locator('[data-test="remove-sauce-labs-backpack"]')
+        this.removedCartItem = page.locator('.removed_cart_item');
+        
     }
 
     async fillCheckoutFields(firstName, lastName, postalCode) {
