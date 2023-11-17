@@ -30,7 +30,7 @@ describe('ecommerce E2E test cases', () => {
         await common.loadToPage('')
     })
 
-    test.only('adds item to basket and proceeds to checkout', async ({ }) => {
+    test('adds item to basket and proceeds to checkout', async ({ }) => {
         await login.inputSignCredentials(user.usernames.standard_user, user.password.rightPassword);
         await ecom.addToCartBackpackBtn.click();
         await ecom.cartBtn.click();
@@ -39,6 +39,14 @@ describe('ecommerce E2E test cases', () => {
         await checkout.continueBtn.click();
         await checkout.finishCheckoutBtn.click();
         await expect(checkout.checkoutCompleteImg).toBeVisible();
+    })
+
+    test.only('removes item from the basket', async ({page}) => {
+        await login.inputSignCredentials(user.usernames.standard_user, user.password.rightPassword);
+        await ecom.addToCartBackpackBtn.click();
+        await ecom.cartBtn.click();
+        await checkout.removeBackPackBtn.click();
+        await expect(checkout.removedCartItem).toBeTruthy();
     })
 
 }) 
