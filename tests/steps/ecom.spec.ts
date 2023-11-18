@@ -30,9 +30,9 @@ describe('ecommerce E2E test cases', () => {
         user = await util.importFile('users');
         userCookies = await util.importFile('cookies');
         await page.context().addCookies([{
-            name: userCookies.cookies.name,
-            value: userCookies.cookies.value,
-            domain:userCookies.cookies.domain,
+            name: userCookies.cookies.standard_user.name,
+            value: userCookies.cookies.standard_user.value,
+            domain:userCookies.cookies.standard_user.domain,
             path: '/',
             expires: Date.now() / 1000 + 10000
         }])
