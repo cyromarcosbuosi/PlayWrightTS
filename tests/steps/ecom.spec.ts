@@ -15,6 +15,7 @@ let ecom;
 const util = new Utils
 let cart;
 let item;
+let userCookies;
 let checkout
 
 describe('ecommerce E2E test cases', () => {
@@ -27,11 +28,18 @@ describe('ecommerce E2E test cases', () => {
         checkout = new Checkout(page);
         item = await util.importFile('items')
         user = await util.importFile('users');
-        await common.loadToPage('')
+        userCookies = await util.importFile('cookies');
+        await page.context().addCookies([{
+            name: userCookies.cookies.name,
+            value: userCookies.cookies.value,
+            domain:userCookies.cookies.domain,
+            path: '/',
+            expires: Date.now() / 1000 + 10000
+        }])
+        await common.loadToPage('/inventory.html')
     })
 
     test('adds item to basket and proceeds to checkout', async ({ }) => {
-        await login.inputSignCredentials(user.usernames.standard_user, user.password.rightPassword);
         await ecom.addToCartBackpackBtn.click();
         await ecom.cartBtn.click();
         await cart.checkoutBtn.click();
@@ -41,8 +49,7 @@ describe('ecommerce E2E test cases', () => {
         await expect(checkout.checkoutCompleteImg).toBeVisible();
     })
 
-    test.only('removes item from the basket', async ({page}) => {
-        await login.inputSignCredentials(user.usernames.standard_user, user.password.rightPassword);
+    test.only('removes item from the basket', async ({ page }) => {
         await ecom.addToCartBackpackBtn.click();
         await ecom.cartBtn.click();
         await checkout.removeBackPackBtn.click();

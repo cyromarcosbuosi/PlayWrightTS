@@ -1,4 +1,5 @@
-import { Locator, Page, expect } from "@playwright/test";
+import { Locator, Page, expect, Cookie} from "@playwright/test";
+import { getCookies } from "undici-types";
 
 export class LoginPage {
     readonly page: Page;
@@ -7,7 +8,7 @@ export class LoginPage {
     readonly submitBtn: Locator;
     readonly signInErrorMsg: Locator;
     readonly lockedOutUser: Locator;
-    
+
 
     constructor(page) {
         this.page = page;
@@ -17,7 +18,7 @@ export class LoginPage {
         this.signInErrorMsg = page.locator('[data-test="error"]')
     }
 
-    async inputSignCredentials(user, password){
+    async inputSignCredentials(user, password) {
         await this.userName.fill(user);
         await this.password.fill(password);
         await this.submitBtn.click();
