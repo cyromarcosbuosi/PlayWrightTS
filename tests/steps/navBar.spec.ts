@@ -59,7 +59,7 @@ test.describe("Saucelabs navigation bar testing", () => {
   });
 
   // Test to click the navBar button, click on logout and check if the URL is correct
-  test.only("Click on the navBar button and check if the logout URL is correct", async ({
+  test("Click on the navBar button and check if the logout URL is correct", async ({
     page,
   }) => {
     await navBar.menuBtn.click();
