@@ -1,17 +1,17 @@
 {
-    "usernames": {
-        "standard_user": "standard_user",
-        "locked_out_user": "locked_out_user",
-        "problem_user": "problem_user",
-        "performance_glitch_user": "problem_user",
-        "error_user": "error_user",
-        "visual_user": "visual_user"
-    },
-    "password": {
-        "rightPassword": "secret_sauce",
-        "wrongPassword": "wrong_sauce"
-    },
-    "firstName":"John",
-    "lastName": "Doe",
-    "postalCode": "123123123"
+  "usernames": {
+    "standard_user": "standard_user",
+    "locked_out_user": "locked_out_user",
+    "problem_user": "problem_user",
+    "performance_glitch_user": "performance_glitch_user",
+    "error_user": "error_user",
+    "visual_user": "visual_user"
+  },
+  "password": {
+    "rightPassword": "secret_sauce",
+    "wrongPassword": "wrong_sauce"
+  },
+  "firstName": "John",
+  "lastName": "Doe",
+  "postalCode": "123123123"
 }
