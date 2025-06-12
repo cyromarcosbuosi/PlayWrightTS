@@ -82,7 +82,7 @@ test.describe("broken users test set, these tests are supposed to fail", () => {
   });
 
   //Scenario where user logs in with problem user and checks image of the backpack
-  test.only("problem user checks backpack image", async ({ page }) => {
+  test("problem user checks backpack image", async ({ page }) => {
     await expect(ecom.productImage).toBeVisible();
     await expect(ecom.productImage).toHaveAttribute(
       "src",
