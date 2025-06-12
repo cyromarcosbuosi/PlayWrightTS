@@ -6,7 +6,7 @@ import { Cart } from "../pages/cart";
 import { Checkout } from "../pages/checkout";
 import { Common } from "../pages/common";
 import { Ecom } from "../pages/ecom";
-import { LoginPage } from "../pages/Login";
+import { LoginPage } from "../pages/Login.ts";
 
 let common;
 let login;

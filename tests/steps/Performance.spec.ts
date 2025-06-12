@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Utils } from "../../utils/main";
 import { Common } from "../pages/common";
 import { Ecom } from "../pages/ecom";
-import { LoginPage } from "../pages/Login";
+import { LoginPage } from "../pages/Login.ts";
 
 let common;
 let login;
