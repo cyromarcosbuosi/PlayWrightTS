@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Utils } from "../../utils/main";
 import { Common } from "../pages/common";
 import { Ecom } from "../pages/ecom";
-import { LoginPage } from "../pages/Login";
+import { LoginPage } from "../pages/Login.ts";
 
 let common;
 let login;
@@ -32,7 +32,7 @@ test.describe("Saucelabs performance testing", () => {
   });
 
   // login with performance_glitch_user and measure performance and expect time not to exceed 2000 milliseconds
-  test.only("Measure performance of login with performance glitch user", async ({
+  test("Measure performance of login with performance glitch user", async ({
     page,
   }) => {
     const startTime = performance.now();
