@@ -8,7 +8,7 @@ export class NavBar {
 
   constructor(page) {
     this.page = page;
-    this.menuBtn = page.locator("[data-test='open-menu']");
+    this.menuBtn = page.locator("#react-burger-menu-btn");
     this.allItemsLink = page.locator("[data-test='inventory-sidebar-link']");
     this.aboutLink = page.locator("[data-test='about-sidebar-link']");
     this.logoutLink = page.locator("[data-test='logout-sidebar-link']");
