@@ -1,0 +1,30 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: Clear node_modules and cache
+        run: |
+          rm -rf node_modules
+          rm -rf package-lock.json
+      - run: npm install
+      - run: npx playwright install --with-deps
+      - name: Verify Playwright Installation
+        run: npm list playwright
+      - run: npx playwright test
+      - run: npx playwright show-report
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
