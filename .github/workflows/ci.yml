@@ -14,17 +14,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "18"
-      - name: Clear node_modules and cache
+      - name: Build Docker image
+        run: docker build -t playwright-e2e .
+      - name: Run Playwright tests in Docker
         run: |
-          rm -rf node_modules
-          rm -rf package-lock.json
-      - run: npm install
-      - run: npx playwright install --with-deps
-      - name: Verify Playwright Installation
-        run: npm list playwright
-      - run: npx playwright test
-      - run: npx playwright show-report
+          docker run --rm -v ${{ github.workspace }}:/app -w /app playwright-e2e
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
+          path: playwright-report
